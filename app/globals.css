@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Riftlens custom colors */
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-positive: var(--positive);
+}
+
+/* Riftlens: always dark theme - no light mode */
+:root {
+  --radius: 0.625rem;
+
+  /* Dark + Gold/Purple palette */
+  --background: #0A0A12;
+  --foreground: #F5F3FF;
+
+  --card: #1A1825;
+  --card-foreground: #F5F3FF;
+
+  --popover: #1A1825;
+  --popover-foreground: #F5F3FF;
+
+  --primary: #D4A843;
+  --primary-foreground: #0A0A12;
+
+  --secondary: #221F2E;
+  --secondary-foreground: #F5F3FF;
+
+  --muted: #221F2E;
+  --muted-foreground: #8B83A3;
+
+  --accent: #7C3AED;
+  --accent-foreground: #F5F3FF;
+
+  --destructive: #EF4444;
+
+  --border: #2D2A3A;
+  --input: #2D2A3A;
+  --ring: #D4A843;
+
+  /* Chart colors */
+  --chart-1: #D4A843;
+  --chart-2: #7C3AED;
+  --chart-3: #22C55E;
+  --chart-4: #3B82F6;
+  --chart-5: #EF4444;
+
+  /* Sidebar */
+  --sidebar: #12111A;
+  --sidebar-foreground: #F5F3FF;
+  --sidebar-primary: #D4A843;
+  --sidebar-primary-foreground: #0A0A12;
+  --sidebar-accent: #221F2E;
+  --sidebar-accent-foreground: #F5F3FF;
+  --sidebar-border: #2D2A3A;
+  --sidebar-ring: #D4A843;
+
+  /* Riftlens custom tokens */
+  --gold: #D4A843;
+  --gold-light: #F0C75E;
+  --purple: #7C3AED;
+  --purple-light: #A855F7;
+  --surface: #1A1825;
+  --surface-elevated: #221F2E;
+  --positive: #22C55E;
+}
+
+/* Mirror :root in .dark for shadcn compatibility */
+.dark {
+  --background: #0A0A12;
+  --foreground: #F5F3FF;
+  --card: #1A1825;
+  --card-foreground: #F5F3FF;
+  --popover: #1A1825;
+  --popover-foreground: #F5F3FF;
+  --primary: #D4A843;
+  --primary-foreground: #0A0A12;
+  --secondary: #221F2E;
+  --secondary-foreground: #F5F3FF;
+  --muted: #221F2E;
+  --muted-foreground: #8B83A3;
+  --accent: #7C3AED;
+  --accent-foreground: #F5F3FF;
+  --destructive: #EF4444;
+  --border: #2D2A3A;
+  --input: #2D2A3A;
+  --ring: #D4A843;
+  --chart-1: #D4A843;
+  --chart-2: #7C3AED;
+  --chart-3: #22C55E;
+  --chart-4: #3B82F6;
+  --chart-5: #EF4444;
+  --sidebar: #12111A;
+  --sidebar-foreground: #F5F3FF;
+  --sidebar-primary: #D4A843;
+  --sidebar-primary-foreground: #0A0A12;
+  --sidebar-accent: #221F2E;
+  --sidebar-accent-foreground: #F5F3FF;
+  --sidebar-border: #2D2A3A;
+  --sidebar-ring: #D4A843;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
