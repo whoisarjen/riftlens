@@ -52,7 +52,7 @@ async function fetchMatches(
 ): Promise<MatchSummary[]> {
   try {
     const res = await fetch(
-      `${getBaseUrl()}/api/summoner/${region}/${puuid}/matches`,
+      `${getBaseUrl()}/api/summoner/${region}/by-puuid/${puuid}/matches`,
       { next: { revalidate: 120 } }
     );
     if (!res.ok) return [];
