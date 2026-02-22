@@ -26,7 +26,7 @@ export async function riotFetch<T>(
 
   const res = await fetch(`https://${host}${path}`, {
     headers: { "X-Riot-Token": RIOT_API_KEY },
-    next: { revalidate: 300 },
+    cache: "no-store",
   });
 
   if (!res.ok) {

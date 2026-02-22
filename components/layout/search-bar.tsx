@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { REGIONS } from "@/lib/constants";
 
 export function SearchBar() {
   const router = useRouter();
@@ -14,22 +15,25 @@ export function SearchBar() {
     const trimmed = query.trim();
     if (!trimmed) return;
 
-    // Parse "GameName#TAG" format
-    const hashIndex = trimmed.lastIndexOf("#");
-    if (hashIndex === -1 || hashIndex === 0 || hashIndex === trimmed.length - 1) {
-      // No valid tag separator, search as-is
-      router.push(`/search?q=${encodeURIComponent(trimmed)}`);
-      return;
-    }
-
-    const gameName = trimmed.slice(0, hashIndex);
-    const tagLine = trimmed.slice(hashIndex + 1);
-
-    // Read region from localStorage or default to na1
     const region =
       typeof window !== "undefined"
         ? localStorage.getItem("riftlens-region") || "na1"
         : "na1";
+
+    const hashIndex = trimmed.lastIndexOf("#");
+
+    let gameName: string;
+    let tagLine: string;
+
+    if (hashIndex > 0 && hashIndex < trimmed.length - 1) {
+      gameName = trimmed.slice(0, hashIndex);
+      tagLine = trimmed.slice(hashIndex + 1);
+    } else {
+      // No tag — use region's default tag
+      gameName = hashIndex === trimmed.length - 1 ? trimmed.slice(0, -1) : trimmed;
+      const regionData = REGIONS.find((r) => r.id === region);
+      tagLine = regionData?.defaultTag ?? region.toUpperCase();
+    }
 
     router.push(
       `/summoner/${region}/${encodeURIComponent(gameName)}/${encodeURIComponent(tagLine)}`
@@ -43,7 +47,7 @@ export function SearchBar() {
       <Input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search: GameName#TAG"
+        placeholder="Search summoner..."
         className="pl-9 bg-secondary border-border"
       />
     </form>

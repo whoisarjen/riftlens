@@ -1,25 +1,25 @@
 export const REGIONS = [
   // Americas
-  { id: "na1", name: "North America", route: "americas", group: "Americas" },
-  { id: "br1", name: "Brazil", route: "americas", group: "Americas" },
-  { id: "la1", name: "Latin America North", route: "americas", group: "Americas" },
-  { id: "la2", name: "Latin America South", route: "americas", group: "Americas" },
+  { id: "na1", name: "North America", route: "americas", group: "Americas", defaultTag: "NA1" },
+  { id: "br1", name: "Brazil", route: "americas", group: "Americas", defaultTag: "BR1" },
+  { id: "la1", name: "Latin America North", route: "americas", group: "Americas", defaultTag: "LAN" },
+  { id: "la2", name: "Latin America South", route: "americas", group: "Americas", defaultTag: "LAS" },
   // Europe
-  { id: "euw1", name: "Europe West", route: "europe", group: "Europe" },
-  { id: "eun1", name: "Europe Nordic & East", route: "europe", group: "Europe" },
-  { id: "tr1", name: "Turkey", route: "europe", group: "Europe" },
-  { id: "ru", name: "Russia", route: "europe", group: "Europe" },
-  { id: "me1", name: "Middle East", route: "europe", group: "Europe" },
+  { id: "euw1", name: "Europe West", route: "europe", group: "Europe", defaultTag: "EUW" },
+  { id: "eun1", name: "Europe Nordic & East", route: "europe", group: "Europe", defaultTag: "EUNE" },
+  { id: "tr1", name: "Turkey", route: "europe", group: "Europe", defaultTag: "TR1" },
+  { id: "ru", name: "Russia", route: "europe", group: "Europe", defaultTag: "RU" },
+  { id: "me1", name: "Middle East", route: "europe", group: "Europe", defaultTag: "ME1" },
   // Asia
-  { id: "kr", name: "Korea", route: "asia", group: "Asia" },
-  { id: "jp1", name: "Japan", route: "asia", group: "Asia" },
+  { id: "kr", name: "Korea", route: "asia", group: "Asia", defaultTag: "KR1" },
+  { id: "jp1", name: "Japan", route: "asia", group: "Asia", defaultTag: "JP1" },
   // SEA
-  { id: "oc1", name: "Oceania", route: "sea", group: "SEA" },
-  { id: "ph2", name: "Philippines", route: "sea", group: "SEA" },
-  { id: "sg2", name: "Singapore", route: "sea", group: "SEA" },
-  { id: "th2", name: "Thailand", route: "sea", group: "SEA" },
-  { id: "tw2", name: "Taiwan", route: "sea", group: "SEA" },
-  { id: "vn2", name: "Vietnam", route: "sea", group: "SEA" },
+  { id: "oc1", name: "Oceania", route: "sea", group: "SEA", defaultTag: "OCE" },
+  { id: "ph2", name: "Philippines", route: "sea", group: "SEA", defaultTag: "PH2" },
+  { id: "sg2", name: "Singapore", route: "sea", group: "SEA", defaultTag: "SG2" },
+  { id: "th2", name: "Thailand", route: "sea", group: "SEA", defaultTag: "TH2" },
+  { id: "tw2", name: "Taiwan", route: "sea", group: "SEA", defaultTag: "TW2" },
+  { id: "vn2", name: "Vietnam", route: "sea", group: "SEA", defaultTag: "VN2" },
 ] as const;
 
 export type RegionId = (typeof REGIONS)[number]["id"];

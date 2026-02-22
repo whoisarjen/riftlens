@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { Search, User, Trophy, BarChart3, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -32,12 +31,6 @@ const REGION_GROUPS = REGIONS.reduce(
   },
   {} as Record<string, (typeof REGIONS)[number][]>
 );
-
-const EXAMPLE_PLAYERS = [
-  { name: "Faker", tag: "KR1", region: "kr", label: "KR" },
-  { name: "Caps", tag: "EUW", region: "euw1", label: "EUW1" },
-  { name: "Doublelift", tag: "NA1", region: "na1", label: "NA1" },
-] as const;
 
 const FEATURES = [
   {
@@ -81,17 +74,20 @@ export default function LandingPage() {
     if (!trimmed) return;
 
     const hashIndex = trimmed.lastIndexOf("#");
-    if (
-      hashIndex === -1 ||
-      hashIndex === 0 ||
-      hashIndex === trimmed.length - 1
-    ) {
-      router.push(`/search?q=${encodeURIComponent(trimmed)}`);
-      return;
-    }
 
-    const gameName = trimmed.slice(0, hashIndex);
-    const tagLine = trimmed.slice(hashIndex + 1);
+    let gameName: string;
+    let tagLine: string;
+
+    if (hashIndex > 0 && hashIndex < trimmed.length - 1) {
+      // User provided Name#Tag
+      gameName = trimmed.slice(0, hashIndex);
+      tagLine = trimmed.slice(hashIndex + 1);
+    } else {
+      // No tag provided — use the region's default tag
+      gameName = hashIndex === trimmed.length - 1 ? trimmed.slice(0, -1) : trimmed;
+      const regionData = REGIONS.find((r) => r.id === region);
+      tagLine = regionData?.defaultTag ?? region.toUpperCase();
+    }
 
     router.push(
       `/summoner/${region}/${encodeURIComponent(gameName)}/${encodeURIComponent(tagLine)}`
@@ -132,7 +128,7 @@ export default function LandingPage() {
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="GameName#TAG"
+              placeholder="Summoner name or Name#TAG"
               className="h-12 w-full pl-12 text-base bg-card border-border"
             />
           </div>
@@ -165,22 +161,9 @@ export default function LandingPage() {
           </div>
         </form>
 
-        {/* Helper text with clickable examples */}
+        {/* Helper text */}
         <p className="mt-4 text-sm text-muted-foreground">
-          Try:{" "}
-          {EXAMPLE_PLAYERS.map((p, i) => (
-            <span key={p.name}>
-              {i > 0 && " · "}
-              <Link
-                href={`/summoner/${p.region}/${encodeURIComponent(p.name)}/${encodeURIComponent(p.tag)}`}
-                className="text-primary hover:underline"
-              >
-                {p.name}#{p.tag}
-              </Link>
-              {" "}
-              <span className="text-muted-foreground/60">({p.label})</span>
-            </span>
-          ))}
+          Enter a summoner name or full Riot ID (Name#TAG)
         </p>
       </section>
 

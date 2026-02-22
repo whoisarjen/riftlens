@@ -164,7 +164,7 @@ export const championStats = pgTable(
 // ── items ──────────────────────────────────────────────────
 export const items = pgTable("items", {
   id: integer("id").primaryKey(),
-  name: varchar("name", { length: 100 }).notNull(),
+  name: text("name").notNull(),
   description: text("description"),
   imageUrl: varchar("image_url", { length: 200 }),
   gold: integer("gold"),

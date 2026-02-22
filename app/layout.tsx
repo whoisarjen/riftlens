@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     "champion",
     "match history",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default function RootLayout({
