@@ -4,7 +4,7 @@ export default function MatchLoading() {
   return (
     <div className="space-y-6">
       {/* Match Header Skeleton */}
-      <div className="rounded-xl border border-[#2D2A3A] bg-card p-6">
+      <div className="rounded-xl border border-border bg-card p-6">
         <div className="mb-4 flex items-center gap-4">
           <Skeleton className="h-6 w-32" />
           <Skeleton className="h-5 w-20" />
@@ -32,7 +32,7 @@ export default function MatchLoading() {
       </div>
 
       {/* Scoreboard Skeleton */}
-      <div className="rounded-xl border border-[#2D2A3A] bg-card p-6">
+      <div className="rounded-xl border border-border bg-card p-6">
         <Skeleton className="mb-4 h-6 w-24" />
         <div className="space-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -54,7 +54,7 @@ export default function MatchLoading() {
       </div>
 
       {/* Second Team Skeleton */}
-      <div className="rounded-xl border border-[#2D2A3A] bg-card p-6">
+      <div className="rounded-xl border border-border bg-card p-6">
         <Skeleton className="mb-4 h-6 w-24" />
         <div className="space-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -76,7 +76,7 @@ export default function MatchLoading() {
       </div>
 
       {/* Charts Skeleton */}
-      <div className="rounded-xl border border-[#2D2A3A] bg-card p-6">
+      <div className="rounded-xl border border-border bg-card p-6">
         <div className="mb-4 flex gap-2">
           <Skeleton className="h-9 w-20" />
           <Skeleton className="h-9 w-20" />

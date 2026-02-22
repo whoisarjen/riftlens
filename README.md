@@ -109,7 +109,7 @@ lib/
 
 Deploy to [Vercel](https://vercel.com/) with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/riftlens&env=RIOT_API_KEY,DATABASE_URL,NEXT_PUBLIC_DDRAGON_VERSION,NEXT_PUBLIC_APP_URL)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/riftlens&env=RIOT_API_KEY,DATABASE_URL,NEXT_PUBLIC_DDRAGON_VERSION)
 
 Or deploy anywhere that supports Next.js — set the environment variables and run:
 

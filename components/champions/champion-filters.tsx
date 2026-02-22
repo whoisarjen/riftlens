@@ -76,7 +76,7 @@ export function ChampionFilters({ onSearchChange }: ChampionFiltersProps) {
               "rounded-md border px-3 py-1.5 text-xs font-medium transition-colors",
               currentRole === role.value
                 ? "border-primary/50 bg-primary/10 text-primary"
-                : "border-border bg-surface text-muted-foreground hover:border-border hover:bg-surface-elevated hover:text-foreground"
+                : "border-border bg-card text-muted-foreground hover:border-border hover:bg-muted hover:text-foreground"
             )}
           >
             {role.label}

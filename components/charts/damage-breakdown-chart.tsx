@@ -21,7 +21,7 @@ interface DamageBreakdownChartProps {
 
 const PHYSICAL_COLOR = "#F97316";
 const MAGIC_COLOR = "#3B82F6";
-const TRUE_COLOR = "#F5F3FF";
+const TRUE_COLOR = "#FAFAFA";
 
 export function DamageBreakdownChart({
   participants,
@@ -42,21 +42,21 @@ export function DamageBreakdownChart({
 
   return (
     <div>
-      <h3 className="mb-3 text-sm font-medium text-[#8B83A3]">
+      <h3 className="mb-3 text-sm font-medium text-[#A1A1AA]">
         Damage to Champions
       </h3>
       <ResponsiveContainer width="100%" height={400}>
         <BarChart data={data} layout="vertical" barCategoryGap={4}>
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke="#2D2A3A"
+            stroke="#27272A"
             horizontal={false}
           />
           <XAxis
             type="number"
-            tick={{ fill: "#8B83A3", fontSize: 12 }}
-            axisLine={{ stroke: "#2D2A3A" }}
-            tickLine={{ stroke: "#2D2A3A" }}
+            tick={{ fill: "#A1A1AA", fontSize: 12 }}
+            axisLine={{ stroke: "#27272A" }}
+            tickLine={{ stroke: "#27272A" }}
             tickFormatter={(value) => formatNumber(value)}
           />
           <YAxis
@@ -80,15 +80,15 @@ export function DamageBreakdownChart({
                 </text>
               );
             }}
-            axisLine={{ stroke: "#2D2A3A" }}
+            axisLine={{ stroke: "#27272A" }}
             tickLine={false}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: "#1A1825",
-              border: "1px solid #2D2A3A",
+              backgroundColor: "#18181B",
+              border: "1px solid #27272A",
               borderRadius: "8px",
-              color: "#F5F3FF",
+              color: "#FAFAFA",
             }}
             formatter={(value, name) => {
               const labels: Record<string, string> = {
@@ -114,7 +114,7 @@ export function DamageBreakdownChart({
                 true: "True",
               };
               return (
-                <span style={{ color: "#8B83A3", fontSize: 12 }}>
+                <span style={{ color: "#A1A1AA", fontSize: 12 }}>
                   {labels[value] || value}
                 </span>
               );

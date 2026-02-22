@@ -5,7 +5,7 @@ export const REGIONS = [
   { id: "la1", name: "Latin America North", route: "americas", group: "Americas" },
   { id: "la2", name: "Latin America South", route: "americas", group: "Americas" },
   // Europe
-  { id: "euw1", name: "Europe West", route: "americas", group: "Europe" },
+  { id: "euw1", name: "Europe West", route: "europe", group: "Europe" },
   { id: "eun1", name: "Europe Nordic & East", route: "europe", group: "Europe" },
   { id: "tr1", name: "Turkey", route: "europe", group: "Europe" },
   { id: "ru", name: "Russia", route: "europe", group: "Europe" },

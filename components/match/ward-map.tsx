@@ -48,7 +48,7 @@ export function WardMap({ timeline }: WardMapProps) {
 
   if (!timeline) {
     return (
-      <div className="flex h-[400px] items-center justify-center text-[#8B83A3]">
+      <div className="flex h-[400px] items-center justify-center text-[#A1A1AA]">
         Ward data not available
       </div>
     );
@@ -56,7 +56,7 @@ export function WardMap({ timeline }: WardMapProps) {
 
   if (wards.length === 0) {
     return (
-      <div className="flex h-[400px] items-center justify-center text-[#8B83A3]">
+      <div className="flex h-[400px] items-center justify-center text-[#A1A1AA]">
         No ward placement data found
       </div>
     );
@@ -64,7 +64,7 @@ export function WardMap({ timeline }: WardMapProps) {
 
   return (
     <div>
-      <h3 className="mb-3 text-sm font-medium text-[#8B83A3]">
+      <h3 className="mb-3 text-sm font-medium text-[#A1A1AA]">
         Ward Placements
       </h3>
       <div className="flex items-start gap-6">
@@ -73,13 +73,13 @@ export function WardMap({ timeline }: WardMapProps) {
             width={SVG_SIZE}
             height={SVG_SIZE}
             viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
-            className="rounded-lg border border-[#2D2A3A]"
+            className="rounded-lg border border-[#27272A]"
           >
             {/* Map background */}
             <rect
               width={SVG_SIZE}
               height={SVG_SIZE}
-              fill="#0A0A12"
+              fill="#09090B"
               rx={8}
             />
 
@@ -91,7 +91,7 @@ export function WardMap({ timeline }: WardMapProps) {
                   y1={0}
                   x2={(SVG_SIZE / 4) * i}
                   y2={SVG_SIZE}
-                  stroke="#2D2A3A"
+                  stroke="#27272A"
                   strokeWidth={0.5}
                 />
                 <line
@@ -99,7 +99,7 @@ export function WardMap({ timeline }: WardMapProps) {
                   y1={(SVG_SIZE / 4) * i}
                   x2={SVG_SIZE}
                   y2={(SVG_SIZE / 4) * i}
-                  stroke="#2D2A3A"
+                  stroke="#27272A"
                   strokeWidth={0.5}
                 />
               </g>
@@ -111,7 +111,7 @@ export function WardMap({ timeline }: WardMapProps) {
               y1={SVG_SIZE}
               x2={SVG_SIZE}
               y2={0}
-              stroke="#2D2A3A"
+              stroke="#27272A"
               strokeWidth={0.5}
               strokeDasharray="4 4"
             />
@@ -185,18 +185,18 @@ export function WardMap({ timeline }: WardMapProps) {
 
         {/* Legend */}
         <div className="space-y-3 pt-2">
-          <div className="text-xs font-medium text-[#8B83A3]">Legend</div>
+          <div className="text-xs font-medium text-[#A1A1AA]">Legend</div>
           <div className="flex items-center gap-2">
             <svg width={12} height={12}>
               <circle cx={6} cy={6} r={3} fill="#3B82F6" />
             </svg>
-            <span className="text-xs text-[#8B83A3]">Blue Team Ward</span>
+            <span className="text-xs text-[#A1A1AA]">Blue Team Ward</span>
           </div>
           <div className="flex items-center gap-2">
             <svg width={12} height={12}>
               <circle cx={6} cy={6} r={3} fill="#EF4444" />
             </svg>
-            <span className="text-xs text-[#8B83A3]">Red Team Ward</span>
+            <span className="text-xs text-[#A1A1AA]">Red Team Ward</span>
           </div>
           <div className="flex items-center gap-2">
             <svg width={16} height={16}>
@@ -204,15 +204,15 @@ export function WardMap({ timeline }: WardMapProps) {
                 cx={8}
                 cy={8}
                 r={4.5}
-                fill="#8B83A3"
-                stroke="#8B83A3"
+                fill="#A1A1AA"
+                stroke="#A1A1AA"
                 strokeWidth={1}
               />
             </svg>
-            <span className="text-xs text-[#8B83A3]">Control Ward (larger)</span>
+            <span className="text-xs text-[#A1A1AA]">Control Ward (larger)</span>
           </div>
-          <div className="mt-4 border-t border-[#2D2A3A] pt-3">
-            <div className="font-mono text-xs text-[#8B83A3]">
+          <div className="mt-4 border-t border-[#27272A] pt-3">
+            <div className="font-mono text-xs text-[#A1A1AA]">
               Total: {wards.length} wards
             </div>
             <div className="font-mono text-xs text-[#3B82F6]">

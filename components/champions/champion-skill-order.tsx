@@ -11,7 +11,7 @@ const SKILL_COLORS: Record<string, string> = {
   Q: "bg-[#3B82F6] text-white",
   W: "bg-[#22C55E] text-white",
   E: "bg-[#EF4444] text-white",
-  R: "bg-[#D4A843] text-white",
+  R: "bg-[#F59E0B] text-white",
 };
 
 export function ChampionSkillOrder({ skillOrder }: ChampionSkillOrderProps) {
@@ -82,7 +82,7 @@ export function ChampionSkillOrder({ skillOrder }: ChampionSkillOrderProps) {
                                   SKILL_COLORS[skill],
                                   "border-transparent font-bold"
                                 )
-                              : "border-border bg-surface text-muted-foreground"
+                              : "border-border bg-card text-muted-foreground"
                           )}
                         >
                           {isSelected ? levelIdx + 1 : ""}

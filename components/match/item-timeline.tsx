@@ -17,7 +17,7 @@ function ItemIcon({
   if (!itemId || itemId === 0) {
     return (
       <div
-        className="h-8 w-8 rounded border border-[#2D2A3A] bg-[#0A0A12]"
+        className="h-8 w-8 rounded border border-[#27272A] bg-[#09090B]"
         title="Empty slot"
       />
     );
@@ -30,9 +30,9 @@ function ItemIcon({
         alt={`Item ${itemId}`}
         width={32}
         height={32}
-        className="rounded border border-[#2D2A3A] transition-transform group-hover:scale-110"
+        className="rounded border border-[#27272A] transition-transform group-hover:scale-110"
       />
-      <div className="pointer-events-none absolute -top-8 left-1/2 z-10 hidden -translate-x-1/2 rounded bg-[#1A1825] px-2 py-1 text-xs text-foreground shadow-lg ring-1 ring-[#2D2A3A] group-hover:block">
+      <div className="pointer-events-none absolute -top-8 left-1/2 z-10 hidden -translate-x-1/2 rounded bg-[#18181B] px-2 py-1 text-xs text-foreground shadow-lg ring-1 ring-[#27272A] group-hover:block">
         Item {itemId}
       </div>
     </div>
@@ -50,7 +50,7 @@ export function ItemTimeline({ participant, version }: ItemTimelineProps) {
       ))}
       {/* Trinket (slot 6) */}
       {items.length > 6 && (
-        <div className="ml-2 rounded border border-dashed border-[#2D2A3A]">
+        <div className="ml-2 rounded border border-dashed border-[#27272A]">
           <ItemIcon itemId={items[6]} version={version} />
         </div>
       )}

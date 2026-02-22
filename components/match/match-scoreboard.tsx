@@ -29,13 +29,13 @@ function DamageBar({
   const width = maxDamage > 0 ? (damage / maxDamage) * 100 : 0;
   return (
     <div className="flex items-center gap-2">
-      <div className="h-1.5 w-20 overflow-hidden rounded-full bg-[#2D2A3A]">
+      <div className="h-1.5 w-20 overflow-hidden rounded-full bg-[#27272A]">
         <div
-          className="h-full rounded-full bg-[#D4A843]"
+          className="h-full rounded-full bg-[#F59E0B]"
           style={{ width: `${width}%` }}
         />
       </div>
-      <span className="font-mono text-xs text-[#8B83A3]">
+      <span className="font-mono text-xs text-[#A1A1AA]">
         {formatNumber(damage)}
       </span>
     </div>
@@ -51,7 +51,7 @@ function ItemSlot({
 }) {
   if (!itemId || itemId === 0) {
     return (
-      <div className="h-6 w-6 rounded border border-[#2D2A3A] bg-[#0A0A12]" />
+      <div className="h-6 w-6 rounded border border-[#27272A] bg-[#09090B]" />
     );
   }
   return (
@@ -60,7 +60,7 @@ function ItemSlot({
       alt={`Item ${itemId}`}
       width={24}
       height={24}
-      className="rounded border border-[#2D2A3A]"
+      className="rounded border border-[#27272A]"
     />
   );
 }
@@ -86,7 +86,7 @@ function TeamTable({
   const isWin = teamParticipants[0]?.win ?? false;
 
   return (
-    <Card className="border-[#2D2A3A] bg-card">
+    <Card className="border-[#27272A] bg-card">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-sm">
           <span style={{ color: teamColor }}>{teamLabel}</span>
@@ -103,16 +103,16 @@ function TeamTable({
       <CardContent className="p-0">
         <Table>
           <TableHeader>
-            <TableRow className="border-[#2D2A3A] hover:bg-transparent">
-              <TableHead className="w-[200px] text-xs text-[#8B83A3]">
+            <TableRow className="border-[#27272A] hover:bg-transparent">
+              <TableHead className="w-[200px] text-xs text-[#A1A1AA]">
                 Champion
               </TableHead>
-              <TableHead className="text-xs text-[#8B83A3]">KDA</TableHead>
-              <TableHead className="text-xs text-[#8B83A3]">Damage</TableHead>
-              <TableHead className="text-xs text-[#8B83A3]">CS</TableHead>
-              <TableHead className="text-xs text-[#8B83A3]">Vision</TableHead>
-              <TableHead className="text-xs text-[#8B83A3]">Gold</TableHead>
-              <TableHead className="text-xs text-[#8B83A3]">Items</TableHead>
+              <TableHead className="text-xs text-[#A1A1AA]">KDA</TableHead>
+              <TableHead className="text-xs text-[#A1A1AA]">Damage</TableHead>
+              <TableHead className="text-xs text-[#A1A1AA]">CS</TableHead>
+              <TableHead className="text-xs text-[#A1A1AA]">Vision</TableHead>
+              <TableHead className="text-xs text-[#A1A1AA]">Gold</TableHead>
+              <TableHead className="text-xs text-[#A1A1AA]">Items</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -123,8 +123,8 @@ function TeamTable({
                 <TableRow
                   key={p.participantId}
                   className={cn(
-                    "border-[#2D2A3A] hover:bg-[#1A1825]/80",
-                    isHighlighted && "border-l-2 border-l-[#D4A843] bg-[#D4A843]/5"
+                    "border-[#27272A] hover:bg-[#18181B]/80",
+                    isHighlighted && "border-l-2 border-l-[#F59E0B] bg-[#F59E0B]/5"
                   )}
                 >
                   <TableCell>
@@ -140,7 +140,7 @@ function TeamTable({
                         <div className="truncate text-sm font-medium text-foreground">
                           {p.riotIdGameName || p.championName}
                         </div>
-                        <div className="truncate text-xs text-[#8B83A3]">
+                        <div className="truncate text-xs text-[#A1A1AA]">
                           {p.championName}
                         </div>
                       </div>
@@ -149,12 +149,12 @@ function TeamTable({
                   <TableCell>
                     <div className="font-mono text-sm">
                       <span className="text-foreground">{p.kills}</span>
-                      <span className="text-[#8B83A3]">/</span>
+                      <span className="text-[#A1A1AA]">/</span>
                       <span className="text-[#EF4444]">{p.deaths}</span>
-                      <span className="text-[#8B83A3]">/</span>
+                      <span className="text-[#A1A1AA]">/</span>
                       <span className="text-foreground">{p.assists}</span>
                     </div>
-                    <div className="font-mono text-xs text-[#8B83A3]">
+                    <div className="font-mono text-xs text-[#A1A1AA]">
                       {kda}
                       {kda !== "Perfect" && " KDA"}
                     </div>

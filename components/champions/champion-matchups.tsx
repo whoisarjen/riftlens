@@ -89,7 +89,7 @@ function MatchupRow({
   return (
     <Link
       href={`/champions/${matchup.opponentChampionId}`}
-      className="flex items-center gap-3 rounded-md p-2 transition-colors hover:bg-surface-elevated"
+      className="flex items-center gap-3 rounded-md p-2 transition-colors hover:bg-muted"
     >
       <Image
         src={championImageUrl(version, matchup.opponentChampionName)}

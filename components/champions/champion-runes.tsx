@@ -66,7 +66,7 @@ export function ChampionRunes({ runes }: ChampionRunesProps) {
                   {runePage.primaryRunes.map((runeId, runeIdx) => (
                     <div
                       key={runeIdx}
-                      className="relative h-8 w-8 overflow-hidden rounded-full border border-border bg-surface"
+                      className="relative h-8 w-8 overflow-hidden rounded-full border border-border bg-card"
                     >
                       <Image
                         src={runeIconUrl(`perk-images/${runeId}.png`)}
@@ -88,7 +88,7 @@ export function ChampionRunes({ runes }: ChampionRunesProps) {
                   {runePage.secondaryRunes.map((runeId, runeIdx) => (
                     <div
                       key={runeIdx}
-                      className="relative h-8 w-8 overflow-hidden rounded-full border border-border bg-surface"
+                      className="relative h-8 w-8 overflow-hidden rounded-full border border-border bg-card"
                     >
                       <Image
                         src={runeIconUrl(`perk-images/${runeId}.png`)}

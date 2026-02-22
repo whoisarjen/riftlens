@@ -97,7 +97,7 @@ function getEventTeamColor(event: TimelineEventData): string {
   // For objectives and buildings, use teamId
   if (event.teamId === 100) return "#3B82F6";
   if (event.teamId === 200) return "#EF4444";
-  return "#8B83A3";
+  return "#A1A1AA";
 }
 
 export function MatchTimeline({ timeline }: MatchTimelineProps) {
@@ -127,7 +127,7 @@ export function MatchTimeline({ timeline }: MatchTimelineProps) {
 
   if (!timeline) {
     return (
-      <div className="flex h-[300px] items-center justify-center text-[#8B83A3]">
+      <div className="flex h-[300px] items-center justify-center text-[#A1A1AA]">
         Timeline data not available
       </div>
     );
@@ -144,8 +144,8 @@ export function MatchTimeline({ timeline }: MatchTimelineProps) {
             className={cn(
               "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
               filter === opt.value
-                ? "bg-[#D4A843]/20 text-[#D4A843]"
-                : "bg-[#2D2A3A]/50 text-[#8B83A3] hover:text-foreground"
+                ? "bg-[#F59E0B]/20 text-[#F59E0B]"
+                : "bg-[#27272A]/50 text-[#A1A1AA] hover:text-foreground"
             )}
           >
             {opt.icon}
@@ -157,7 +157,7 @@ export function MatchTimeline({ timeline }: MatchTimelineProps) {
       {/* Event list */}
       <div className="max-h-[500px] space-y-1 overflow-y-auto pr-2">
         {filteredEvents.length === 0 ? (
-          <div className="py-8 text-center text-sm text-[#8B83A3]">
+          <div className="py-8 text-center text-sm text-[#A1A1AA]">
             No events to display
           </div>
         ) : (
@@ -166,9 +166,9 @@ export function MatchTimeline({ timeline }: MatchTimelineProps) {
             return (
               <div
                 key={idx}
-                className="flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-[#2D2A3A]/30"
+                className="flex items-center gap-3 rounded-md px-3 py-2 transition-colors hover:bg-[#27272A]/30"
               >
-                <span className="w-12 shrink-0 font-mono text-xs text-[#8B83A3]">
+                <span className="w-12 shrink-0 font-mono text-xs text-[#A1A1AA]">
                   {formatTimestamp(event.timestamp)}
                 </span>
                 <div

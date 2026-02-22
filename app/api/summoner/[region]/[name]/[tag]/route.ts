@@ -26,9 +26,17 @@ export async function GET(
     // 2. Fetch fresh data from Riot API
     const account = await getAccountByRiotId(region, decodedName, decodedTag);
     const summoner = await getSummonerByPuuid(region, account.puuid);
-    const leagueEntries = await getLeagueEntries(region, summoner.id);
 
-    // 3. Extract ranked info
+    // 3. Fetch ranked info (graceful degradation if unavailable)
+    let leagueEntries: LeagueEntryDTO[] = [];
+    if (summoner.id) {
+      try {
+        leagueEntries = await getLeagueEntries(region, summoner.id);
+      } catch {
+        // Ranked data unavailable — continue without it
+      }
+    }
+
     const soloEntry = leagueEntries.find(
       (e: LeagueEntryDTO) => e.queueType === "RANKED_SOLO_5x5"
     );
@@ -62,7 +70,7 @@ export async function GET(
       gameName: account.gameName,
       tagLine: account.tagLine,
       region: region as RegionId,
-      summonerId: summoner.id,
+      summonerId: summoner.id ?? null,
       profileIconId: summoner.profileIconId,
       summonerLevel: summoner.summonerLevel,
       soloRank,

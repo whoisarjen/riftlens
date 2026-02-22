@@ -22,7 +22,7 @@ export const summoners = pgTable(
     gameName: varchar("game_name", { length: 100 }).notNull(),
     tagLine: varchar("tag_line", { length: 10 }).notNull(),
     region: varchar("region", { length: 10 }).notNull(),
-    summonerId: varchar("summoner_id", { length: 63 }).notNull(),
+    summonerId: varchar("summoner_id", { length: 63 }),
     profileIconId: integer("profile_icon_id").notNull(),
     summonerLevel: integer("summoner_level").notNull(),
     // Ranked info (nullable — unranked players)

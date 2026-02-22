@@ -5,7 +5,7 @@ export interface SummonerProfile {
   gameName: string;
   tagLine: string;
   region: RegionId;
-  summonerId: string;
+  summonerId: string | null;
   profileIconId: number;
   summonerLevel: number;
   soloRank: RankedInfo | null;

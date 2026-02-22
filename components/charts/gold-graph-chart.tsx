@@ -27,7 +27,7 @@ export function GoldGraphChart({
 }: GoldGraphChartProps) {
   if (!timeline) {
     return (
-      <div className="flex h-[400px] items-center justify-center text-[#8B83A3]">
+      <div className="flex h-[400px] items-center justify-center text-[#A1A1AA]">
         Timeline data not available
       </div>
     );
@@ -67,35 +67,35 @@ export function GoldGraphChart({
 
   return (
     <div>
-      <h3 className="mb-3 text-sm font-medium text-[#8B83A3]">
+      <h3 className="mb-3 text-sm font-medium text-[#A1A1AA]">
         Gold Over Time (per Player)
       </h3>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={data}>
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke="#2D2A3A"
+            stroke="#27272A"
             vertical={false}
           />
           <XAxis
             dataKey="time"
-            tick={{ fill: "#8B83A3", fontSize: 12 }}
-            axisLine={{ stroke: "#2D2A3A" }}
-            tickLine={{ stroke: "#2D2A3A" }}
+            tick={{ fill: "#A1A1AA", fontSize: 12 }}
+            axisLine={{ stroke: "#27272A" }}
+            tickLine={{ stroke: "#27272A" }}
             tickFormatter={(value) => `${value}m`}
           />
           <YAxis
-            tick={{ fill: "#8B83A3", fontSize: 12 }}
-            axisLine={{ stroke: "#2D2A3A" }}
-            tickLine={{ stroke: "#2D2A3A" }}
+            tick={{ fill: "#A1A1AA", fontSize: 12 }}
+            axisLine={{ stroke: "#27272A" }}
+            tickLine={{ stroke: "#27272A" }}
             tickFormatter={(value) => formatNumber(value)}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: "#1A1825",
-              border: "1px solid #2D2A3A",
+              backgroundColor: "#18181B",
+              border: "1px solid #27272A",
               borderRadius: "8px",
-              color: "#F5F3FF",
+              color: "#FAFAFA",
               maxHeight: "300px",
               overflowY: "auto",
             }}
@@ -107,7 +107,7 @@ export function GoldGraphChart({
           />
           <Legend
             formatter={(value: string) => (
-              <span style={{ color: "#8B83A3", fontSize: 11 }}>{value}</span>
+              <span style={{ color: "#A1A1AA", fontSize: 11 }}>{value}</span>
             )}
           />
           {blueParticipants.map((p, i) => (

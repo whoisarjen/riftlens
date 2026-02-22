@@ -17,7 +17,7 @@ interface MatchHeaderProps {
 
 function TeamObjectives({ team }: { team: TeamDetail }) {
   return (
-    <div className="flex items-center gap-3 text-sm text-[#8B83A3]">
+    <div className="flex items-center gap-3 text-sm text-[#A1A1AA]">
       <div className="flex items-center gap-1" title="Dragons">
         <Flame className="h-4 w-4" />
         <span className="font-mono">{team.dragons}</span>
@@ -45,28 +45,28 @@ export function MatchHeader({ match, version }: MatchHeaderProps) {
   const patchVersion = match.gameVersion.split(".").slice(0, 2).join(".");
 
   return (
-    <Card className="border-[#2D2A3A] bg-card">
+    <Card className="border-[#27272A] bg-card">
       <CardContent className="p-6">
         {/* Top info bar */}
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <Badge
             variant="outline"
-            className="border-[#D4A843] text-[#D4A843]"
+            className="border-[#F59E0B] text-[#F59E0B]"
           >
             {queueName(match.queueId)}
           </Badge>
-          <span className="font-mono text-sm text-[#8B83A3]">
+          <span className="font-mono text-sm text-[#A1A1AA]">
             {formatGameDuration(match.gameDuration)}
           </span>
-          <span className="text-sm text-[#8B83A3]">
+          <span className="text-sm text-[#A1A1AA]">
             Patch {patchVersion}
           </span>
-          <span className="text-sm text-[#8B83A3]">
+          <span className="text-sm text-[#A1A1AA]">
             {formatTimeAgo(match.gameStartTimestamp)}
           </span>
         </div>
 
-        <Separator className="mb-6 bg-[#2D2A3A]" />
+        <Separator className="mb-6 bg-[#27272A]" />
 
         {/* Team comparison */}
         <div className="flex items-center gap-4">
@@ -90,9 +90,9 @@ export function MatchHeader({ match, version }: MatchHeaderProps) {
               <span className="font-mono text-3xl font-bold text-[#3B82F6]">
                 {blueTeam?.totalKills ?? 0}
               </span>
-              <span className="text-sm text-[#8B83A3]">Kills</span>
+              <span className="text-sm text-[#A1A1AA]">Kills</span>
             </div>
-            <div className="mt-1 flex items-center gap-2 text-sm text-[#8B83A3]">
+            <div className="mt-1 flex items-center gap-2 text-sm text-[#A1A1AA]">
               <Swords className="h-3.5 w-3.5" />
               <span className="font-mono">
                 {formatNumber(blueTeam?.totalGold ?? 0)}
@@ -108,7 +108,7 @@ export function MatchHeader({ match, version }: MatchHeaderProps) {
 
           {/* VS divider */}
           <div className="flex flex-col items-center gap-1">
-            <span className="text-xl font-bold text-[#8B83A3]">VS</span>
+            <span className="text-xl font-bold text-[#A1A1AA]">VS</span>
           </div>
 
           {/* Red Team */}
@@ -128,12 +128,12 @@ export function MatchHeader({ match, version }: MatchHeaderProps) {
               </span>
             </div>
             <div className="mt-2 flex items-baseline justify-end gap-3">
-              <span className="text-sm text-[#8B83A3]">Kills</span>
+              <span className="text-sm text-[#A1A1AA]">Kills</span>
               <span className="font-mono text-3xl font-bold text-[#EF4444]">
                 {redTeam?.totalKills ?? 0}
               </span>
             </div>
-            <div className="mt-1 flex items-center justify-end gap-2 text-sm text-[#8B83A3]">
+            <div className="mt-1 flex items-center justify-end gap-2 text-sm text-[#A1A1AA]">
               <span>Gold</span>
               <span className="font-mono">
                 {formatNumber(redTeam?.totalGold ?? 0)}

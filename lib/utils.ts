@@ -44,7 +44,7 @@ export function formatNumber(n: number): string {
 }
 
 export function tierToColor(tier: string): string {
-  return TIER_COLORS[tier.toUpperCase()] || "#8B83A3";
+  return TIER_COLORS[tier.toUpperCase()] || "#A1A1AA";
 }
 
 export function queueName(queueId: number): string {
@@ -57,7 +57,7 @@ export function csPerMinute(cs: number, durationSeconds: number): string {
 }
 
 export function kdaColor(kda: number): string {
-  if (kda >= 5) return "text-gold-light";
+  if (kda >= 5) return "text-amber-400";
   if (kda >= 3) return "text-positive";
   if (kda >= 2) return "text-foreground";
   return "text-muted-foreground";

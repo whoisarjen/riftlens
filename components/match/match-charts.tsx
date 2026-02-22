@@ -16,7 +16,7 @@ interface MatchChartsProps {
 
 export function MatchCharts({ match, version }: MatchChartsProps) {
   return (
-    <Card className="border-[#2D2A3A] bg-card">
+    <Card className="border-[#27272A] bg-card">
       <CardContent className="p-6">
         <Tabs defaultValue="gold">
           <TabsList className="mb-4">

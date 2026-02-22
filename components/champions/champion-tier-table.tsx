@@ -73,7 +73,7 @@ export function ChampionTierTable({
             return (
               <TableRow
                 key={`${champ.championId}-${champ.role}`}
-                className="border-border transition-colors hover:bg-surface-elevated"
+                className="border-border transition-colors hover:bg-muted"
               >
                 <TableCell className="font-mono text-sm text-muted-foreground">
                   {index + 1}

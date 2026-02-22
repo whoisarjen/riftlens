@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Search, User, Trophy, BarChart3, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,12 @@ const REGION_GROUPS = REGIONS.reduce(
   },
   {} as Record<string, (typeof REGIONS)[number][]>
 );
+
+const EXAMPLE_PLAYERS = [
+  { name: "Faker", tag: "KR1", region: "kr", label: "KR" },
+  { name: "Caps", tag: "EUW", region: "euw1", label: "EUW1" },
+  { name: "Doublelift", tag: "NA1", region: "na1", label: "NA1" },
+] as const;
 
 const FEATURES = [
   {
@@ -98,8 +105,8 @@ export default function LandingPage() {
       <section className="relative flex w-full flex-col items-center justify-center px-4 py-24 md:py-36">
         {/* Gradient background effects */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/2 top-1/4 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
-          <div className="absolute right-1/4 top-1/2 h-[300px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
+          <div className="absolute left-1/2 top-1/4 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 blur-[120px]" />
+          <div className="absolute right-1/4 top-1/2 h-[300px] w-[400px] rounded-full bg-indigo-500/5 blur-[100px]" />
         </div>
 
         {/* Logo */}
@@ -118,47 +125,62 @@ export default function LandingPage() {
         {/* Search form */}
         <form
           onSubmit={handleSubmit}
-          className="relative z-10 flex w-full max-w-xl flex-col items-center gap-3 sm:flex-row"
+          className="relative z-10 flex w-full max-w-xl flex-col gap-3"
         >
-          <div className="relative flex-1 w-full">
+          <div className="relative">
             <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="GameName#TAG"
-              className="h-12 pl-12 text-base bg-card border-border"
+              className="h-12 w-full pl-12 text-base bg-card border-border"
             />
           </div>
 
-          <Select value={region} onValueChange={handleRegionChange}>
-            <SelectTrigger className="h-12 w-full sm:w-[130px] bg-card border-border">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {Object.entries(REGION_GROUPS).map(([group, regions]) => (
-                <SelectGroup key={group}>
-                  <SelectLabel className="text-muted-foreground">
-                    {group}
-                  </SelectLabel>
-                  {regions.map((r) => (
-                    <SelectItem key={r.id} value={r.id}>
-                      {r.id.toUpperCase()}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="flex gap-3">
+            <Select value={region} onValueChange={handleRegionChange}>
+              <SelectTrigger className="h-12! flex-1 bg-card border-border text-sm">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.entries(REGION_GROUPS).map(([group, regions]) => (
+                  <SelectGroup key={group}>
+                    <SelectLabel className="text-muted-foreground">
+                      {group}
+                    </SelectLabel>
+                    {regions.map((r) => (
+                      <SelectItem key={r.id} value={r.id}>
+                        {r.id.toUpperCase()}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                ))}
+              </SelectContent>
+            </Select>
 
-          <Button type="submit" className="h-12 w-full px-8 sm:w-auto">
-            <Search className="mr-2 h-4 w-4" />
-            Search
-          </Button>
+            <Button type="submit" className="h-12 flex-1">
+              <Search className="mr-2 h-4 w-4" />
+              Search
+            </Button>
+          </div>
         </form>
 
-        {/* Helper text */}
+        {/* Helper text with clickable examples */}
         <p className="mt-4 text-sm text-muted-foreground">
-          Enter a Riot ID to get started (e.g., Faker#KR1)
+          Try:{" "}
+          {EXAMPLE_PLAYERS.map((p, i) => (
+            <span key={p.name}>
+              {i > 0 && " · "}
+              <Link
+                href={`/summoner/${p.region}/${encodeURIComponent(p.name)}/${encodeURIComponent(p.tag)}`}
+                className="text-primary hover:underline"
+              >
+                {p.name}#{p.tag}
+              </Link>
+              {" "}
+              <span className="text-muted-foreground/60">({p.label})</span>
+            </span>
+          ))}
         </p>
       </section>
 
