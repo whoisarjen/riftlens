@@ -22,7 +22,7 @@ const REGION_GROUPS = REGIONS.reduce(
 );
 
 export function RegionSelector() {
-  const [region, setRegion] = useState("na1");
+  const [region, setRegion] = useState("eun1");
 
   useEffect(() => {
     const stored = localStorage.getItem("riftlens-region");

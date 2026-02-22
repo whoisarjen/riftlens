@@ -17,8 +17,8 @@ export function SearchBar() {
 
     const region =
       typeof window !== "undefined"
-        ? localStorage.getItem("riftlens-region") || "na1"
-        : "na1";
+        ? localStorage.getItem("riftlens-region") || "eun1"
+        : "eun1";
 
     const hashIndex = trimmed.lastIndexOf("#");
 
@@ -47,7 +47,7 @@ export function SearchBar() {
       <Input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search summoner..."
+        placeholder="e.g. Bukasz Łorzym"
         className="pl-9 bg-secondary border-border"
       />
     </form>

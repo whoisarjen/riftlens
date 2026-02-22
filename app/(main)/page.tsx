@@ -56,7 +56,7 @@ const FEATURES = [
 export default function LandingPage() {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [region, setRegion] = useState("na1");
+  const [region, setRegion] = useState("eun1");
 
   useEffect(() => {
     const stored = localStorage.getItem("riftlens-region");
@@ -128,7 +128,7 @@ export default function LandingPage() {
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Summoner name or Name#TAG"
+              placeholder="e.g. Bukasz Łorzym"
               className="h-12 w-full pl-12 text-base bg-card border-border"
             />
           </div>
