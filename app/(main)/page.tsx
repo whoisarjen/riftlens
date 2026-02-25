@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 import { Search, User, Trophy, BarChart3, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -186,6 +187,11 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
+      <Script
+        src="https://beamback.whoisarjen.com/widget.js"
+        data-api-key="ak_lDu5k7lB9Rq64qRIejcw7"
+        strategy="afterInteractive"
+      />
     </div>
   );
 }
